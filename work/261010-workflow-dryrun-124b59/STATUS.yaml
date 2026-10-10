@@ -1,17 +1,17 @@
 version: 3
 work_id: "261010-workflow-dryrun-124b59"
-work_state: WAITING
-closure_result: null
+work_state: CLOSED
+closure_result: COMPLETE
 current_task: null
-last_actor: "REVIEWER"
-next_actor: "HUMAN"
-condition: "Task 124b59-T0001 received PASS from Reviewer at work HEAD a7b3dc8; SUMMARY.md recorded; TASK-INDEX.completed_at set. No remaining internal actions; Final Review findings reported to user, awaiting explicit CLOSED/COMPLETE or CLOSED/INCOMPLETE acceptance."
+last_actor: "HUMAN"
+next_actor: "INTEGRATION"
+condition: "HUMAN explicitly approved closure with closure_result=COMPLETE; Work can now enter Integration Manual from the latest main head."
 open_issue: null
-last_event: "0003-REVIEW-PASS.md"
-based_on_work_commit: "a7b3dc815b336f7d117bda2636591feb8bd77cec"
+last_event: "0004-CLOSURE-APPROVAL.md"
+based_on_work_commit: "6fb6c81c13b27aee002b5d25cf39d3fb6cc514e5"
 active_design_commit: "d8e246f8e66ad29fd27822678826bc69f4f7436d"
 active_impl_commit: "b7b547eaff56562bb1c611c4a3cd1254905df117"
 priority_head: null
-updated_at: "2026-10-11T03:38:16+09:00"
-updated_by_role: "REVIEWER"
-notes: "Projection only; Task, Thread, Review, and Git history remain the durable source records."
+updated_at: "2026-10-11T03:43:16+09:00"
+updated_by_role: "HUMAN"
+notes: "Closure recorded by Agent on explicit HUMAN approval. Integration Manual must be executed against the latest remote main head; the closure commit must not be force-pushed or rebased."
