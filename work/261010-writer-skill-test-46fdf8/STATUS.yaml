@@ -3,15 +3,15 @@ work_id: "261010-writer-skill-test-46fdf8"
 work_state: PROGRESS
 closure_result: null
 current_task: "46fdf8-T0001"
-last_actor: "DESIGNER"
-next_actor: "IMPLEMENTER"
-condition: "Design Item 46fdf8-0001 is committed and pushed on design/<WORK-ID>; Implementer can now author project-<WORK-ID>/writer-test.txt on impl/<WORK-ID> against the fixed path and literal content."
+last_actor: "IMPLEMENTER"
+next_actor: "REVIEWER"
+condition: "Implementation commit 23028f5 is recorded as active_impl_commit and pushed to impl/<WORK-ID>; Reviewer can now judge the range review_base_commit=5e820422..reviewed_commit=23028f5 for byte-equal conformance to Design 46fdf8-0001."
 open_issue: null
-last_event: "0001-DESIGN-COMMIT.md"
-based_on_work_commit: "345a6310da848c224879920da40c4d313c2118a1"
+last_event: "0002-IMPL-COMMIT.md"
+based_on_work_commit: "e23a959c55ba932cf7ea3298faa737db9d2d8842"
 active_design_commit: "b0493110a755b874f6c648baa4686204402287ae"
-active_impl_commit: null
+active_impl_commit: "23028f569535784efa858929b0ae6d70c137e7a0"
 priority_head: "46fdf8-T0001"
-updated_at: "2026-10-11T03:59:17+09:00"
-updated_by_role: "DESIGNER"
+updated_at: "2026-10-11T04:11:24+09:00"
+updated_by_role: "IMPLEMENTER"
 notes: "Projection only; Task, Thread, Review, and Git history remain the durable source records."
