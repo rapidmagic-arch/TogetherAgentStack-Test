@@ -1,14 +1,13 @@
 version: 3
 work_id: "261010-workflow-dryrun-124b59"
-priority_order:
-  - "124b59-T0001"
+priority_order: []
 tasks:
   - task_id: "124b59-T0001"
     title: "Dry-run hello.txt implementation and end-to-end Lifecycle exercise"
     summary_path: "tasks/124b59-T0001/SUMMARY.md"
-    completed_at: null
-priority_reason: "This single task covers the verifiable end-to-end Lifecycle execution required by the Work's Purpose."
-priority_reviewed_at: "2026-10-11T03:20:14+09:00"
-priority_reviewed_by_role: "IMPLEMENTER"
-updated_at: "2026-10-11T03:20:14+09:00"
+    completed_at: "2026-10-11T03:38:16+09:00"
+priority_reason: "Task 124b59-T0001 completed via PASS Review at work HEAD a7b3dc8; no remaining unfinished tasks in this Work, awaiting HUMAN closure judgement."
+priority_reviewed_at: "2026-10-11T03:38:16+09:00"
+priority_reviewed_by_role: "REVIEWER"
+updated_at: "2026-10-11T03:38:16+09:00"
 rule: "Priority is the current execution order, not a permanent Task property; completed_at is null until a PASS Review and Summary establish completion."
