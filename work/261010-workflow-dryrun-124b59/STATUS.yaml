@@ -1,0 +1,17 @@
+version: 3
+work_id: "261010-workflow-dryrun-124b59"
+work_state: PROGRESS
+closure_result: null
+current_task: "124b59-T0001"
+last_actor: "DESIGNER"
+next_actor: "IMPLEMENTER"
+condition: "Minimal Design commit for Task 124b59-T0001 has been recorded in work Canonical; Implementation on impl/<WORK-ID> can now produce project-<WORK-ID>/hello.txt against the agreed condition."
+open_issue: null
+last_event: "0001-DESIGN-COMMIT.md"
+based_on_work_commit: "16f8e619472e434468e2b305eaddb44012dce2ad"
+active_design_commit: "design-branch-design-placeholder"
+active_impl_commit: null
+priority_head: "124b59-T0001"
+updated_at: "2026-10-10T17:39:00+09:00"
+updated_by_role: "DESIGNER"
+notes: "Projection only; Task, Thread, Review, and Git history remain the durable source records."
