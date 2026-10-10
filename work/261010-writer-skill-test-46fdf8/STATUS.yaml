@@ -1,0 +1,17 @@
+version: 3
+work_id: "261010-writer-skill-test-46fdf8"
+work_state: PROGRESS
+closure_result: null
+current_task: "46fdf8-T0001"
+last_actor: "DESIGNER"
+next_actor: "IMPLEMENTER"
+condition: "DESIGNER Handoff recorded; Implementation can now create project-<WORK-ID>/writer-test.txt with literal 'writer handoff test\\n'."
+open_issue: null
+last_event: "0001-DESIGN-COMMIT.md"
+based_on_work_commit: "5e8204221d387310bb7ad17e3c0e337a029f662c"
+active_design_commit: "design-branch-design-placeholder"
+active_impl_commit: null
+priority_head: "46fdf8-T0001"
+updated_at: "2026-10-11T04:00:00+09:00"
+updated_by_role: "DESIGNER"
+notes: "Projection only; Task, Thread, Review, and Git history remain the durable source records."
