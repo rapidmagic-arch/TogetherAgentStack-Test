@@ -3,15 +3,15 @@ work_id: "261010-workflow-dryrun-124b59"
 work_state: PROGRESS
 closure_result: null
 current_task: "124b59-T0001"
-last_actor: "DESIGNER"
-next_actor: "IMPLEMENTER"
-condition: "Design Item 124b59-0001 is committed and pushed on design/<WORK-ID>; the Implementer can now author project-<WORK-ID>/hello.txt on impl/<WORK-ID> against the fixed path and literal content."
+last_actor: "IMPLEMENTER"
+next_actor: "REVIEWER"
+condition: "Implementation commit b7b547e is recorded as active_impl_commit and pushed to impl/<WORK-ID>; Reviewer can now judge the range review_base_commit=16f8e619..reviewed_commit=b7b547e for byte-equal conformance to Design 124b59-0001."
 open_issue: null
-last_event: "0001-DESIGN-COMMIT.md"
-based_on_work_commit: "cf8f4a4f7c242fbb39f2da309d903d2f63c58ecb"
+last_event: "0002-IMPL-COMMIT.md"
+based_on_work_commit: "37ae6be84050f2b14a5adf742ba212fdb8876277"
 active_design_commit: "d8e246f8e66ad29fd27822678826bc69f4f7436d"
-active_impl_commit: null
+active_impl_commit: "b7b547eaff56562bb1c611c4a3cd1254905df117"
 priority_head: "124b59-T0001"
-updated_at: "2026-10-10T18:06:10+09:00"
-updated_by_role: "DESIGNER"
+updated_at: "2026-10-11T03:20:14+09:00"
+updated_by_role: "IMPLEMENTER"
 notes: "Projection only; Task, Thread, Review, and Git history remain the durable source records."

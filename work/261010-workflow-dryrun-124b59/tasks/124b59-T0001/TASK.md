@@ -46,8 +46,8 @@ A single Commit on branch `impl/<WORK-ID>` that adds the file `project-<WORK-ID>
 ## Review Evidence
 
 - Pull Request: NOT_APPLICABLE
-- Review Base Commit: UNKNOWN before result submission
-- Reviewed Commit: UNKNOWN before review
+- Review Base Commit: `16f8e619472e434468e2b305eaddb44012dce2ad` (equals Task Base Commit; only commit in range, see notes below)
+- Reviewed Commit: `b7b547eaff56562bb1c611c4a3cd1254905df117`
 - Review Result: UNKNOWN before review
 - Review Reference: <review URL, event ref, or concise basis>
 
@@ -57,4 +57,6 @@ A single Commit on branch `impl/<WORK-ID>` that adds the file `project-<WORK-ID>
 
 ## Notes
 
-This Task exists solely to exercise the Lifecycle. <TODO> not used here; process conversation belongs in events/issues. GitHub PR is review evidence, while Task completion remains recorded in TASK-INDEX and SUMMARY after PASS Review.
+This Task exists solely to exercise the Lifecycle. Process conversation belongs in events/issues. GitHub PR is review evidence, while Task completion remains recorded in TASK-INDEX and SUMMARY after PASS Review.
+
+Range reasoning: The Implementation introduced a single commit `b7b547eaff56562bb1c611c4a3cd1254905df117` on top of base main `16f8e619472e434468e2b305eaddb44012dce2ad`. `git rev-list --count 16f8e619..b7b547e` returns 1, so the entire Task change range equals the Task Base Commit..Implementation Commit and the Review Base Commit naturally equals the Task Base Commit.
