@@ -1,0 +1,21 @@
+version: 3
+message_types:
+  REQUEST: "Task 또는 Issue에서 다른 Actor에게 수행 목적·입력·기대 결과를 전달한다."
+  PROGRESS: "완료 전 의미 있는 진행·시도·발견·중간 결과를 기록한다."
+  QUESTION: "현재 Actor 권한만으로 확정할 수 없는 구체 판단을 요청한다."
+  DECISION: "질문에 대한 선택과 근거 및 적용 범위를 명확히 기록한다."
+  RESULT: "구현 또는 설계 작업의 현재 결과와 검증 근거를 제출한다."
+  REVIEW: "Reviewer가 Canonical Review 결과와 근거를 기록한다."
+  CONFIRM: "결정이나 수정이 실제 반영되고 검증되었음을 관련 Actor가 확인한다."
+required_metadata:
+  - event_id
+  - message_type
+  - actor_role
+  - created_at
+  - task_id
+optional_metadata:
+  - issue_id
+  - base_commit
+  - result_commit
+  - design_refs
+rule: "Message Type은 기록의 의미만 나타내며 상태전이를 자동으로 의미하지 않는다. 실제 라우팅은 기록 내용, Review 결과, next_actor, condition을 함께 확인한다."

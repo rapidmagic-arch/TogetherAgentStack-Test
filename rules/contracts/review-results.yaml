@@ -1,0 +1,15 @@
+version: 1
+review_results:
+  PASS:
+    meaning: "현재 Task의 Condition과 Verification 기준이 충족되어 같은 Task에서 추가 수정이 필요하지 않다."
+    next: "Task Summary와 완료 시점을 기록하고 남은 Task Priority를 재평가한다."
+  REWORK:
+    meaning: "Design은 유지되지만 구현·테스트·오류 처리를 같은 Task 안에서 수정해야 한다."
+    next: "같은 Task를 IMPLEMENTER에게 넘긴다."
+  DESIGN_ISSUE:
+    meaning: "올바른 구현 또는 검증을 위해 현재 Design의 추가 판단이나 변경이 필요하다."
+    next: "같은 Task 아래 Issue를 생성하거나 재개하여 DESIGNER에게 넘긴다."
+  USER_DECISION_REQUIRED:
+    meaning: "선택에 따라 목적·권한·범위·사용자 결과가 달라져 Agent가 대신 확정할 수 없다."
+    next: "선택지와 영향을 기록하고 HUMAN 판단을 요청한다."
+rule: "Review 결과 코드는 다음 행동을 갈라야 할 때만 사용하며 Work 상태나 Task 내부 진행 상태를 대신하지 않는다."

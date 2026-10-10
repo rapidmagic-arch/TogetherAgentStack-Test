@@ -1,0 +1,16 @@
+version: 3
+roles:
+  HUMAN:
+    meaning: "최종 목적·권한·종료 결과처럼 Agent가 대신 확정할 수 없는 결정을 승인하는 사용자 역할."
+    exclusive:
+      - "Work Root CLOSED 승인"
+      - "closure_result COMPLETE 또는 INCOMPLETE 확정"
+      - "목적·권한·제품 범위를 바꾸는 최종 선택"
+  DESIGNER:
+    meaning: "현재 Work 목적을 구현 가능한 Design으로 구체화하고 설계 판단이 필요한 Issue에 결정 근거를 제공하는 역할."
+  IMPLEMENTER:
+    meaning: "채택된 Design과 Task Condition을 실제 코드·설정·테스트·산출물로 구현하고 검증하는 역할."
+  REVIEWER:
+    meaning: "Task 목적·Design·구현·검증 근거를 비교하여 Canonical Review 결과를 판정하는 역할."
+rule: "한 Agent가 여러 역할을 수행할 수 있어도 현재 행동에서는 어떤 Role 권한으로 수행하는지 명확해야 하며 다른 Role의 전용 권한을 암묵적으로 사용하지 않는다."
+integration_rule: "사용자 종료 승인 후 main 통합은 별도의 전용 Role을 요구하지 않으며, 통합을 맡은 Agent가 Integration Manual을 실행하되 HUMAN 전용 승인 권한을 새로 얻는 것은 아니다."

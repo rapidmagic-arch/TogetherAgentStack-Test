@@ -1,0 +1,28 @@
+version: 1
+priority_order:
+  P0:
+    meaning: "권한, 사용자 승인, Canonical 소유권, 데이터 무결성처럼 잘못 적용하면 결과의 확정 의미가 바뀌는 규칙."
+  P1:
+    meaning: "Lifecycle, Repository Entry, Branching, Task, Thread, Handoff, STATUS, Priority처럼 작업 흐름과 다음 행동을 결정하는 규칙."
+  P2:
+    meaning: "Design, Implementation, Review, Verification, Integration처럼 실제 결과물을 만들고 품질을 판정하는 규칙."
+  P3:
+    meaning: "Reference 조회, 선택적 효율화, 보조 방법처럼 작업을 지원하지만 상위 규칙을 변경할 수 없는 규칙."
+precedence: "P0 > P1 > P2 > P3"
+default_manual_priority:
+  repository-entry.md: P1
+  work-root.md: P1
+  task.md: P1
+  thread.md: P1
+  handoff.md: P1
+  status-marking.md: P1
+  branching.md: P1
+  rule-maintenance.md: P1
+  design.md: P2
+  implementation.md: P2
+  review.md: P2
+  final-review.md: P2
+  integration.md: P2
+  reopen.md: P1
+  reference-lookup.md: P3
+exception_rule: "Manual의 기본 우선순위보다 높은 권한·Canonical·사용자 승인 규칙이 포함되면 해당 문장은 P0으로 취급하며 낮은 기본 우선순위가 이를 약화할 수 없다."

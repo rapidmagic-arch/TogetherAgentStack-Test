@@ -1,0 +1,14 @@
+version: 3
+work_id: "<WORK-ID>"
+priority_order:
+  - "<TASK-ID>"
+tasks:
+  - task_id: "<TASK-ID>"
+    title: "<short-title>"
+    summary_path: "tasks/<TASK-ID>/SUMMARY.md"
+    completed_at: null
+priority_reason: "<one complete sentence explaining why the first unfinished task is currently next>"
+priority_reviewed_at: "<ISO-8601>"
+priority_reviewed_by_role: "<ROLE>"
+updated_at: "<ISO-8601>"
+rule: "Priority is the current execution order, not a permanent Task property; completed_at is null until a PASS Review and Summary establish completion."

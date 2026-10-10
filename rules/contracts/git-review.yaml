@@ -1,0 +1,36 @@
+version: 3
+purpose: "GitHub Pull Request와 Review를 변경분 검토·증거·최종 전달에 활용하되 Work/Task/Thread의 Canonical 책임을 대체하지 않도록 경계를 정의한다."
+scope:
+  work_linked_rule: "Work와 연결된 Design·Implementation·Integration PR은 이 Contract를 따른다."
+  maintenance_rule: "Repository 규칙·문서·기반 구조 자체의 유지보수처럼 특정 Work 결과를 전달하지 않는 PR은 일반 Maintenance PR로 사용할 수 있으며, 해당 변경이 특정 Work에 속하면 Work 규칙을 우선 적용한다."
+review_surface:
+  meaning: "design/<WORK-ID> 또는 impl/<WORK-ID>의 변경 Diff, inline comment, review, check를 보기 위한 비Canonical 검토면."
+  canonical: false
+  preferred_form: "가능하면 Draft PR로 유지한다."
+  merge_rule: "Review Surface PR은 Work 진행 중 main으로 병합하지 않으며 최종 전달 경로로 사용하지 않는다."
+task_review_evidence:
+  required:
+    - "PR 번호 또는 URL. PR을 사용하지 않았으면 NOT_APPLICABLE."
+    - "Review 범위가 시작되기 직전 Commit인 review_base_commit."
+    - "Reviewer가 실제로 검토한 범위의 마지막 Commit인 reviewed_commit."
+    - "rules/contracts/review-results.yaml에 따른 Review 결과."
+    - "검토 근거 또는 관련 Review URL."
+  range_rule: "Task Review가 승인하는 변경 범위는 review_base_commit을 제외하고 reviewed_commit까지 포함하는 review_base_commit..reviewed_commit이며, Reviewer는 이 범위와 최종 결과 상태를 함께 확인한다."
+  base_stability_rule: "같은 Task의 REWORK에서는 최초 Review가 다루던 전체 Task 변경 범위를 잃지 않도록 review_base_commit을 유지하며, rebase·baseline 교체 등으로 기준점이 바뀌면 변경 이유를 Work에 기록하고 새 범위 전체를 다시 Review한다."
+  rule: "GitHub의 Approve, Request Changes, Comment만으로 Task 결과가 확정되지 않으며 Work Task의 Review 기록이 Canonical 판정이다."
+inline_review:
+  local_diff_rule: "현재 Design·Task Condition을 바꾸지 않는 코드·설정·문서의 국소 문제는 PR inline thread에서 수정·확인할 수 있다."
+  escalation_rule: "PR comment에서 Design·범위·사용자 결과·다른 Actor 권한 판단이 필요해지면 해당 내용을 Work Issue에 연결하고 PR thread만으로 결정하지 않는다."
+  close_rule: "PR thread를 Resolve했다는 사실은 Work Issue 종료나 Task PASS를 자동 의미하지 않는다."
+stale_review:
+  rule: "reviewed_commit 이후 PR Head가 바뀌면 변경이 해당 Task의 검토 범위·행동·검증에 영향을 주는지 확인하고 영향이 있으면 새 reviewed_commit까지 다시 Review하며 영향이 없으면 그 근거를 Work 기록에 남긴다."
+identity_boundary:
+  rule: "PR 작성자와 Reviewer가 같은 GitHub 사용자·App·Bot identity를 사용하면 해당 GitHub 승인 자체를 독립 Reviewer 또는 HUMAN 승인 증거로 간주하지 않고 Role 기반 Review 근거를 Work에 별도로 기록한다."
+protection_boundary:
+  rule: "Branch protection, Ruleset, Required Review, Required Check는 실제 Repository 설정에서 활성화된 것이 검증된 경우에만 물리적 Gate로 간주하며 설정 여부를 추론하지 않는다."
+final_integration:
+  branch: "integrate/<WORK-ID>"
+  rule: "사용자가 Work 종료 결과를 승인한 뒤 당시 최신 main에서 Integration Branch를 만들고 승인된 최종 산출물만 적용하여 main 대상 Final Integration PR을 생성한다."
+  merge_rule: "Final Integration PR은 Work 종료 결정을 대신하지 않으며 사용자 승인 이후 최종 결과를 전달하는 Git 단계이다."
+  freshness_rule: "Final Integration PR 준비 또는 Review 중 main이 전진하면 최신 main과 정합성을 다시 확인하고 충돌·영향이 있으면 필요한 검증을 다시 수행한다."
+  pre_merge_rule: "Merge 직전에 Work가 여전히 CLOSED이고 closure result와 source Design/Implementation Commit이 Final Integration PR을 만들 때와 동일한지 다시 확인하며, Work가 Reopen되었거나 기준 결과가 바뀌었으면 기존 Final Integration PR을 병합하지 않는다."

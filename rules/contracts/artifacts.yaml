@@ -1,0 +1,26 @@
+version: 3
+artifacts:
+  WORK_ROOT:
+    purpose: "Work의 불변 ID·목적·범위와 종료/재개 역사처럼 장기적으로 보존할 사실을 기록하며 현재 상태 Projection은 보관하지 않는다."
+  STATUS:
+    purpose: "현재 Work 상태와 다음 행동을 빠르게 읽기 위한 Projection."
+    source_of_truth: "Task, Thread, Review, Git history에서 파생되며 독립 원장이 아니다."
+  TASK_INDEX:
+    purpose: "현재 Task 목록, 완료 시점, 실행 우선순위와 이유를 한눈에 제공한다."
+  TASK:
+    purpose: "하나의 실행 가능한 작업 목적·범위·Condition·관련 Design·기대 결과를 관리한다."
+  TASK_SUMMARY:
+    purpose: "후속 Agent가 이전 Task 전문을 읽지 않고도 결과·미해결점·관련 Commit을 파악하도록 제공한다."
+  EVENT:
+    purpose: "Task 또는 Issue에서 의미 있는 요청·진행·질문·결정·결과·Review·확인을 시간순으로 남긴다."
+  ISSUE:
+    purpose: "Task 중 다른 Actor 판단이 필요한 특정 문제의 현재 질문과 영향을 설명한다."
+  ISSUE_CLOSE:
+    purpose: "문제·최종 결정·반영 위치·검증·확인 Actor를 압축하여 Thread의 최종 결론을 제공한다."
+  DESIGN_ITEM:
+    purpose: "현재 Work에서 무엇을 만들기로 결정했는지를 현재형으로 설명한다."
+  PROJECT:
+    purpose: "`project-<WORK-ID>/`에서 실제 코드·설정·테스트·제품 구조를 보관하는 구현 산출물이다."
+  FINAL_CHECKLIST:
+    purpose: "Work 종료 후보 시 필수 Task·Issue·Design·구현·검증·미완료 항목을 전체적으로 확인한다."
+rule: "Projection과 Summary는 원본 기록을 대신하지 않으며 원본과 충돌하면 원본을 확인한 뒤 Projection을 수정한다."

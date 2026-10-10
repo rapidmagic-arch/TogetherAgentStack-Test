@@ -1,0 +1,20 @@
+version: 2
+internal_mapping:
+  rule: "CLOSED가 아닌 Work는 현재 실제 조건에 따라 PROGRESS, WAITING, REVIEW 중 하나로 다시 계산하며 과거 상태 때문에 현재 상태 전이를 제한하지 않는다."
+closure:
+  from:
+    - PROGRESS
+    - WAITING
+    - REVIEW
+  to: CLOSED
+  condition: "사용자가 현재 Work Cycle의 종료를 명시적으로 승인하고 COMPLETE 또는 INCOMPLETE 결과를 함께 확정했을 때."
+reopen:
+  from: CLOSED
+  to:
+    - PROGRESS
+    - REVIEW
+  condition: "과거 종료 기록을 보존한 채 재개 이유와 다음 실제 행동을 기록했을 때, 다음 행동이 실행이면 PROGRESS이고 전체 재검토가 먼저이면 REVIEW로 매핑한다."
+constraints:
+  - "CLOSED와 closure_result는 HUMAN만 승인할 수 있다."
+  - "Message Type 하나만으로 상태가 바뀌지 않으며 실제 조건과 STATUS Projection이 일치해야 한다."
+  - "재개할 때 과거 CLOSED 기록과 당시 closure_result를 삭제하거나 덮어쓰지 않는다."

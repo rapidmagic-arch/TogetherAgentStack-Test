@@ -1,0 +1,17 @@
+version: 3
+work_id: "<WORK-ID>"
+work_state: PROGRESS
+closure_result: null
+current_task: "<TASK-ID-or-null>"
+last_actor: "<ROLE-or-null>"
+next_actor: "<ROLE-or-null>"
+condition: "<one complete sentence explaining why the current state and next action are needed>"
+open_issue: "<ISSUE-ID-or-null>"
+last_event: "<event-ref-or-null>"
+based_on_work_commit: "<work-branch-head-read-before-this-update>"
+active_design_commit: "<design-branch-commit-sha-or-null>"
+active_impl_commit: "<impl-branch-commit-sha-or-null>"
+priority_head: "<TASK-ID-or-null>"
+updated_at: "<ISO-8601>"
+updated_by_role: "<ROLE>"
+notes: "Projection only; Task, Thread, Review, and Git history remain the durable source records."

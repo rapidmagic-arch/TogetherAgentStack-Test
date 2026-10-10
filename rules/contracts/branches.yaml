@@ -1,0 +1,33 @@
+version: 4
+branches:
+  main:
+    purpose: "현재 유효한 규칙·사용자 승인 Design·검증된 최종 Project 결과의 Canonical."
+    excludes: "Task Thread, 시행착오, 중간 질문, STATUS, Priority, Agent Handoff."
+  work/<WORK-ID>:
+    purpose: "Task, Issue Thread, STATUS, TASK-INDEX, Handoff 과정의 Canonical."
+    content_root: "work/<WORK-ID>/"
+  design/<WORK-ID>:
+    purpose: "현재 Work의 설계 작성·수정 작업 브랜치."
+    content_root: "design-<WORK-ID>/"
+  impl/<WORK-ID>:
+    purpose: "현재 Work의 실제 구현·테스트 작업 브랜치."
+    content_root: "project-<WORK-ID>/"
+  integrate/<WORK-ID>:
+    purpose: "사용자 종료 승인 후 당시 최신 main을 기준으로 최종 반영 대상만 조립하여 Final Integration PR을 만드는 임시 전달 브랜치."
+    canonical: false
+creation:
+  work_rule: "새 Work의 work/design/impl 브랜치는 동일한 승인된 main 기준 Commit에서 시작하고 그 base commit을 Work 기록에 남긴다."
+  integration_rule: "integrate/<WORK-ID>는 Work 시작 시 미리 만들지 않고 사용자 종료 승인 후 당시 최신 main에서 생성한다."
+cross_branch_reference:
+  design_to_work: "Design 변경은 design branch Commit을 만들고 work branch Task/Issue와 STATUS.active_design_commit에 SHA를 기록한다."
+  impl_to_work: "Implementation 결과는 impl branch Commit을 만들고 work branch Task RESULT와 STATUS.active_impl_commit에 SHA를 기록한다."
+  review: "Reviewer는 Branch latest를 추측하지 않고 Work Branch가 명시한 Design/Implementation Commit과 연결된 Review 증거를 기준으로 검토한다."
+concurrency:
+  rule: "Work Branch를 읽은 뒤 원격 Head가 바뀌었으면 이전 Head를 기준으로 STATUS·Thread를 덮어쓰거나 강제 Push하지 않고 최신 Work 기록을 다시 읽어 변경을 합친 뒤 기록한다."
+git_review:
+  rule: "PR의 역할과 Review 증거·Final Integration 규칙은 rules/contracts/git-review.yaml을 따른다."
+rules:
+  - "Thread 원본은 work/<WORK-ID>에만 두고 design 또는 impl 브랜치에 독립 복사본을 운영하지 않는다."
+  - "Work Branch는 종료 후에도 자동 삭제하지 않으며 삭제·아카이브는 별도 사용자 정책이 있을 때만 수행한다."
+  - "design/impl의 Review Surface PR은 검토용이며 Work 진행 중 main으로 병합하지 않는다."
+  - "main 반영은 Work/Design/Implementation 과정 브랜치를 통째로 병합하지 않고 integrate/<WORK-ID>에서 사용자 승인된 최종 산출물만 선별한 Final Integration PR을 통해 수행한다."
