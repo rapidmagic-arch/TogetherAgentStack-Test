@@ -60,10 +60,10 @@ This Task verifies that when the Hermes `workspace-tas-watcher` Skill detects a 
 ### Implementation Result (IMPLEMENTER Handoff)
 
 - Source Design Commit: `c23027f6e736515190dcc076d1b97a89abc29b0c` (Design Item `7e3a91-0001`)
-- Implementation Commit: <to be filled by IMPLEMENTER> on branch `impl/261010-implementer-e2e-7e3a91`
+- Implementation Commit: `7751b55fef95a0679e1d1ba3ce0c2fe09efe608a` on branch `impl/261010-implementer-e2e-7e3a91`
 - File: `project-261010-implementer-e2e-7e3a91/implementer-e2e.txt`
 - Size: 28 bytes (27 ASCII chars + single LF terminator)
-- sha256: <to be filled by IMPLEMENTER>
+- sha256: `651ef79e9e819f1d8da160cc27938fc2ca6efc1c297861338f800e13769ce149`
 - Byte-equal comparison to expected `implementer delegation test\n`: pass (`diff -q` clean)
 - LF only, no CRLF, no UTF-8 BOM, no trailing whitespace
 - Verification method: `git cat-file blob origin/impl/...:project-.../implementer-e2e.txt | sha256sum` matches the sha256 above
