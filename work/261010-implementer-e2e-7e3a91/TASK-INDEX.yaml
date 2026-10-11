@@ -1,0 +1,14 @@
+version: 3
+work_id: "261010-implementer-e2e-7e3a91"
+priority_order:
+  - "7e3a91-T0001"
+tasks:
+  - task_id: "7e3a91-T0001"
+    title: "IMPLEMENTER delegation E2E test — produce implementer-e2e.txt per Design 7e3a91-0001"
+    summary_path: "tasks/7e3a91-T0001/SUMMARY.md"
+    completed_at: null
+priority_reason: "Design Commit c23027f is recorded and pushed to design/<WORK-ID>; IMPLEMENTER should now produce implementer-e2e.txt on the impl branch and record the IMPLEMENTER Handoff so next_actor=REVIEWER is set."
+priority_reviewed_at: "2026-10-12T06:56:50+09:00"
+priority_reviewed_by_role: "DESIGNER"
+updated_at: "2026-10-12T06:56:50+09:00"
+rule: "Priority is the current execution order, not a permanent Task property; completed_at is null until a PASS Review and Summary establish completion."
